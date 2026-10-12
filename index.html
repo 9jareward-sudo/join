@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d0b">
+
+<title>Farmvault — Join & Claim $50 Bonus</title>
+<meta name="description" content="Join the Farmvault Telegram community and learn about available bonuses.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #080d0b;
+    --green: #25e879;
+    --text: #f4faf6;
+    --muted: #94a59a;
+    --telegram: #2aabee;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background:
+        radial-gradient(ellipse at 15% 10%, #123b2644, transparent 45%),
+        radial-gradient(ellipse at 85% 90%, #15354b35, transparent 45%),
+        var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    cursor: pointer;
+}
+
+.container {
+    width: 100%;
+    max-width: 460px;
+    text-align: center;
+}
+
+.logo {
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 22px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #25e879, #128847);
+    box-shadow: 0 10px 40px #25e87925;
+    font-size: 34px;
+    color: #062413;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 13px;
+    border: 1px solid #ffffff14;
+    background: #ffffff08;
+    border-radius: 30px;
+    color: #b7c9bd;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.tag span {
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--green);
+}
+
+h1 {
+    font-size: clamp(32px, 7vw, 45px);
+    line-height: 1.13;
+    letter-spacing: -1.7px;
+    margin-bottom: 14px;
+}
+
+h1 em {
+    color: var(--green);
+    font-style: normal;
+}
+
+.description {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+/* Telegram channel cards */
+
+.channels {
+    display: grid;
+    gap: 13px;
+    text-align: left;
+}
+
+.channel {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 16px;
+    background: linear-gradient(145deg, #152019, #0e1511);
+    border: 1px solid #ffffff12;
+    border-radius: 17px;
+    transition: transform .2s, border-color .2s;
+}
+
+.channel:hover {
+    transform: translateY(-2px);
+    border-color: #25e87945;
+}
+
+.channel-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    color: var(--telegram);
+    background: #2aabee1c;
+}
+
+.channel-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.channel-info h2 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.channel-info p {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.join {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 11px 13px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity .2s;
+    position: relative;
+    z-index: 2;
+}
+
+.join:hover {
+    opacity: .82;
+}
+
+.join-community {
+    background: #188b49;
+}
+
+.join-tutorial {
+    background: #167bb0;
+}
+
+/* $50 bonus card - now BELOW the channel buttons */
+
+.bonus {
+    position: relative;
+    overflow: hidden;
+    padding: 25px 20px;
+    margin-top: 22px;
+    border: 1px solid #25e87945;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #14251a, #0d1711);
+}
+
+.bonus:before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: #25e87912;
+    filter: blur(40px);
+    border-radius: 50%;
+    top: -75px;
+    right: -30px;
+    pointer-events: none;
+}
+
+.bonus-label {
+    color: #b4c8b9;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.bonus-amount {
+    color: var(--green);
+    font-size: clamp(48px, 12vw, 68px);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -3px;
+    margin: 7px 0;
+}
+
+.bonus-subtitle {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.claim-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 17px 15px;
+    margin-top: 19px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #35f18a, #17b95b);
+    color: #062412;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 8px 28px #25e87920;
+    transition: transform .2s, filter .2s;
+    position: relative;
+    z-index: 2;
+}
+
+.claim-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+}
+
+/* Footer */
+
+.note {
+    margin-top: 22px;
+    color: #84978b;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.note i {
+    margin-right: 5px;
+    color: var(--green);
+}
+
+.footer {
+    margin-top: 27px;
+    color: #5f7165;
+    font-size: 11px;
+}
+
+@media (max-width: 390px) {
+    body {
+        padding: 16px;
+    }
+
+    .channel {
+        padding: 12px;
+        gap: 9px;
+    }
+
+    .channel-icon {
+        width: 41px;
+        height: 41px;
+        font-size: 20px;
+    }
+
+    .channel-info h2 {
+        font-size: 12px;
+    }
+
+    .channel-info p {
+        font-size: 10px;
+    }
+
+    .join {
+        padding: 10px;
+        font-size: 11px;
+    }
+
+    .bonus {
+        padding: 23px 15px;
+    }
+
+    .claim-btn {
+        font-size: 12px;
+        gap: 7px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <!-- Logo -->
+    <div class="logo">
+        <i class="fa-brands fa-telegram"></i>
+    </div>
+
+    <!-- Heading -->
+    <div class="tag">
+        <span></span>
+        WELCOME TO FARMVAULT
+    </div>
+
+    <h1>Join & Claim Your <em>Bonus.</em></h1>
+
+    <p class="description">
+        Become part of the Farmvault community. Join us on Telegram
+        for updates, announcements and information about available bonuses.
+    </p>
+
+    <!-- TELEGRAM BUTTONS FIRST -->
+    <div class="channels">
+
+        <!-- Community -->
+        <div class="channel">
+            <div class="channel-icon">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <div class="channel-info">
+                <h2>Farmvault Community</h2>
+                <p>Announcements, news and bonus information.</p>
+            </div>
+
+            <a
+                class="join join-community"
+                href="https://t.me/Farmvault_Community"
+                onclick="event.stopPropagation()"
+            >
+                Join
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+        </div>
+
+        <!-- Tutorial -->
+        <div class="channel">
+            <div class="channel-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div class="channel-info">
+                <h2>Farmvault Tutorial</h2>
+                <p>Guides and tutorials to help you get started.</p>
+            </div>
+
+            <a
+                class="join join-tutorial"
+                href="https://t.me/farmvault_section"
+                onclick="event.stopPropagation()"
+            >
+                View
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- $50 BONUS CARD BELOW BOTH BUTTONS -->
+    <section class="bonus">
+
+        <div class="bonus-label">
+            <i class="fa-solid fa-gift"></i>
+            Welcome Bonus
+        </div>
+
+        <div class="bonus-amount">$50</div>
+
+        <p class="bonus-subtitle">
+            Join our Telegram community to learn about the bonus
+            and any applicable eligibility requirements.
+        </p>
+
+        <a
+            class="claim-btn"
+            href="https://t.me/Farmvault_Community"
+            onclick="event.stopPropagation()"
+        >
+            <i class="fa-solid fa-rocket"></i>
+            Join & Claim $50 Bonus
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </section>
+
+    <!-- Note -->
+    <p class="note">
+        <i class="fa-solid fa-shield-halved"></i>
+        Tap anywhere on this page to open the Farmvault community.
+    </p>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; <span id="year"></span> Farmvault. All rights reserved.
+    </div>
+
+</main>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+document.addEventListener('click', function(event) {
+    // Each link opens its own Telegram destination.
+    // Other areas of the page open the main community.
+    if (event.target.closest('a')) {
+        return;
+    }
+
+    window.location.href = 'https://t.me/Farmvault_Community';
+});
+</script>
+
+</body>
+</html>
+
